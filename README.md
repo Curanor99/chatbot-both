@@ -1,0 +1,2 @@
+## Run chatbot in docker container
+To run the chatbot in a docker container you will need to build the image first. To do that run `docker build . -t "chatbot"` within this folder. After the image is built, you can run a container via the command `docker run -p 5000:5000 chatbot`. You will now be able to access the chatbot over this [URL](http://localhost:5000).
