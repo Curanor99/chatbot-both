@@ -1,2 +1,4 @@
 ## Run chatbot in docker container
-To run the chatbot in a docker container you will need to build the image first. To do that run `docker build . -t "chatbot"` within this folder. After the image is built, you can run a container via the command `docker run -p 5000:5000 chatbot`. You will now be able to access the chatbot over this [URL](http://localhost:5000).
+To run the chatbot in a docker container you will need to build the image first. To do that run `docker build . -t "chatbot"` within this folder. After the image is built, you can run a container via the command `docker run -p 5000:5000 chatbot`. You will now be able to access the chatbot over this [URL](http://localhost:5000). The start process could take a little time. Wait until the message "Rasa server is up and running" is displayed in the terminal.
+
+All required python packages are listed [here](./requirements.txt). All additional requirements will be installed automatically when installing these. Your python version should be between `3.7` and `3.10`

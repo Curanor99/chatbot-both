@@ -8,7 +8,7 @@ COPY ./ /tmp/chatbot/
 RUN apt-get update \
     && apt-get -y install libpq-dev gcc
 
-RUN pip install psycopg2-binary && pip3 install rasa && pip3 install Flask
+RUN pip3 install -r /tmp/chatbot/requirements.txt
 
 RUN chmod +x /tmp/chatbot/run-chatbot.sh
 
