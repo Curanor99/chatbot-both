@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /tmp/chatbot/chatbot-fapra
+cd /tmp/chatbot/chatbot-backend
 
 rasa run actions &
 rasa run &
