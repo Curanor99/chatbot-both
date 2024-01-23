@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module actions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>actions</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/sebastian/Dokumente/Universit%C3%A4t/Fachpraktikum_NLP/chatbot/chatbot-backend/actions/actions.py">/home/sebastian/Dokumente/Universität/Fachpraktikum_NLP/chatbot/chatbot-backend/actions/actions.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;file&nbsp;contains&nbsp;all&nbsp;custom&nbsp;actions&nbsp;which&nbsp;are&nbsp;required&nbsp;for&nbsp;the&nbsp;chatbot</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="rasa_sdk.forms.html#FormValidationAction">rasa_sdk.forms.FormValidationAction</a>(<a href="rasa_sdk.forms.html#ValidationAction">rasa_sdk.forms.ValidationAction</a>, <a href="abc.html#ABC">abc.ABC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="actions.html#ValidateQuestionnaireForm">ValidateQuestionnaireForm</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="actions.html#ActionCalculateResult">ActionCalculateResult</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ActionCalculateResult">class <strong>ActionCalculateResult</strong></a>(<a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;is&nbsp;a&nbsp;custom&nbsp;action&nbsp;used&nbsp;by&nbsp;the&nbsp;chatbot&nbsp;to&nbsp;calculate&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;questionnaire&nbsp;form<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="actions.html#ActionCalculateResult">ActionCalculateResult</a></dd>
+<dd><a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ActionCalculateResult-name"><strong>name</strong></a>(self) -&gt; str</dt><dd><tt>Unique&nbsp;identifier&nbsp;of&nbsp;this&nbsp;simple&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="ActionCalculateResult-run"><strong>run</strong></a>(self, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: Dict[str, Any]) -&gt; List[Dict[str, Any]]</dt><dd><tt>Runs&nbsp;the&nbsp;action&nbsp;to&nbsp;calculate&nbsp;the&nbsp;result&nbsp;with&nbsp;the&nbsp;given&nbsp;answers&nbsp;and&nbsp;utters&nbsp;the&nbsp;result&nbsp;to&nbsp;the&nbsp;users<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher&nbsp;(CollectingDispatcher):&nbsp;Object&nbsp;from&nbsp;Rasa.&nbsp;Used&nbsp;to&nbsp;generate&nbsp;responses&nbsp;to&nbsp;user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracker&nbsp;(Tracker):&nbsp;Rasa&nbsp;Object&nbsp;to&nbsp;access&nbsp;the&nbsp;memory&nbsp;of&nbsp;the&nbsp;chatbot&nbsp;(e.g.&nbsp;slots)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain&nbsp;(Dict[Text,&nbsp;Any]):&nbsp;The&nbsp;domain&nbsp;of&nbsp;the&nbsp;chatbot<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;Dict&nbsp;containing&nbsp;the&nbsp;action,&nbsp;which&nbsp;should&nbsp;be&nbsp;executed&nbsp;after&nbsp;the&nbsp;result&nbsp;is&nbsp;uttered.&nbsp;In&nbsp;this&nbsp;case&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;slots&nbsp;should&nbsp;be&nbsp;reset&nbsp;in&nbsp;order&nbsp;to&nbsp;allow&nbsp;another&nbsp;person&nbsp;to&nbsp;fill&nbsp;out&nbsp;the&nbsp;Questionnaire<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IndexError:&nbsp;Raised&nbsp;if&nbsp;the&nbsp;score&nbsp;is&nbsp;higher&nbsp;than&nbsp;expected&nbsp;for&nbsp;a&nbsp;category&nbsp;and&nbsp;there&nbsp;is&nbsp;no&nbsp;matching&nbsp;severity&nbsp;label</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ActionCalculateResult-get_evaluation_data"><strong>get_evaluation_data</strong></a>() -&gt; Dict</dt><dd><tt>Fetches&nbsp;all&nbsp;necessary&nbsp;data&nbsp;for&nbsp;the&nbsp;evaluation&nbsp;from&nbsp;the&nbsp;corresponding&nbsp;file<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;Dict&nbsp;containing&nbsp;the&nbsp;data&nbsp;extracted,&nbsp;which&nbsp;is&nbsp;necessary&nbsp;for&nbsp;the&nbsp;calculation&nbsp;of&nbsp;the&nbsp;result.&nbsp;Consists&nbsp;of&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;categories,&nbsp;the&nbsp;associated&nbsp;slots&nbsp;and&nbsp;the&nbsp;severity&nbsp;labels.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;YAMLError:&nbsp;Raised&nbsp;if&nbsp;there&nbsp;is&nbsp;an&nbsp;error&nbsp;while&nbsp;reading&nbsp;the&nbsp;file</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>:<br>
+<dl><dt><a name="ActionCalculateResult-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ValidateQuestionnaireForm">class <strong>ValidateQuestionnaireForm</strong></a>(<a href="rasa_sdk.forms.html#FormValidationAction">rasa_sdk.forms.FormValidationAction</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;is&nbsp;used&nbsp;by&nbsp;the&nbsp;chatbot&nbsp;to&nbsp;validate&nbsp;the&nbsp;input&nbsp;for&nbsp;statements&nbsp;of&nbsp;the&nbsp;questionnaire&nbsp;given&nbsp;by&nbsp;the&nbsp;user<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="actions.html#ValidateQuestionnaireForm">ValidateQuestionnaireForm</a></dd>
+<dd><a href="rasa_sdk.forms.html#FormValidationAction">rasa_sdk.forms.FormValidationAction</a></dd>
+<dd><a href="rasa_sdk.forms.html#ValidationAction">rasa_sdk.forms.ValidationAction</a></dd>
+<dd><a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a></dd>
+<dd><a href="abc.html#ABC">abc.ABC</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ValidateQuestionnaireForm-name"><strong>name</strong></a>(self) -&gt; str</dt><dd><tt>Unique&nbsp;identifier&nbsp;of&nbsp;this&nbsp;simple&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_1"><strong>validate_statement_1</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_1`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_10"><strong>validate_statement_10</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_10`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_11"><strong>validate_statement_11</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_11`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_12"><strong>validate_statement_12</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_12`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_13"><strong>validate_statement_13</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_13`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_14"><strong>validate_statement_14</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_14`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_15"><strong>validate_statement_15</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_15`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_16"><strong>validate_statement_16</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_16`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_17"><strong>validate_statement_17</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_17`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_18"><strong>validate_statement_18</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_18`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_19"><strong>validate_statement_19</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_19`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_2"><strong>validate_statement_2</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_2`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_20"><strong>validate_statement_20</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_20`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_21"><strong>validate_statement_21</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_21`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_3"><strong>validate_statement_3</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_3`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_4"><strong>validate_statement_4</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_4`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_5"><strong>validate_statement_5</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_5`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_6"><strong>validate_statement_6</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_6`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_7"><strong>validate_statement_7</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_7`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_8"><strong>validate_statement_8</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_8`</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-validate_statement_9"><strong>validate_statement_9</strong></a>(self, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher, tracker: rasa_sdk.interfaces.Tracker, domain: rasa_sdk.types.DomainDict) -&gt; Dict[str, Any]</dt><dd><tt>Validate&nbsp;the&nbsp;input&nbsp;given&nbsp;for&nbsp;slot&nbsp;`statement_9`</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ValidateQuestionnaireForm-validate_slot"><strong>validate_slot</strong></a>(slot_name: str, slot_value: Any, dispatcher: rasa_sdk.executor.CollectingDispatcher) -&gt; Dict[str, Any]</dt><dd><tt>Validates&nbsp;the&nbsp;input&nbsp;for&nbsp;slots.&nbsp;If&nbsp;the&nbsp;actual&nbsp;input&nbsp;does&nbsp;not&nbsp;match&nbsp;an&nbsp;expected&nbsp;input,&nbsp;the&nbsp;slot&nbsp;will&nbsp;not&nbsp;be&nbsp;filled<br>
+and&nbsp;the&nbsp;user&nbsp;will&nbsp;be&nbsp;informed<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;slot_name&nbsp;(str):&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;slot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;slot_value&nbsp;(Any):&nbsp;The&nbsp;value&nbsp;to&nbsp;check<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher&nbsp;(CollectingDispatcher):&nbsp;Object&nbsp;from&nbsp;Rasa.&nbsp;Used&nbsp;to&nbsp;generate&nbsp;responses&nbsp;to&nbsp;user<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict:&nbsp;contains&nbsp;slots&nbsp;altered&nbsp;by&nbsp;method.&nbsp;Empty&nbsp;if&nbsp;not&nbsp;in&nbsp;allowed&nbsp;answers,&nbsp;otherwise&nbsp;with&nbsp;slot_value</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<hr>
+Methods inherited from <a href="rasa_sdk.forms.html#FormValidationAction">rasa_sdk.forms.FormValidationAction</a>:<br>
+<dl><dt><a name="ValidateQuestionnaireForm-domain_slots"><strong>domain_slots</strong></a>(self, domain: 'DomainDict') -&gt; List[str]</dt><dd><tt>Returns&nbsp;slots&nbsp;which&nbsp;were&nbsp;mapped&nbsp;in&nbsp;the&nbsp;domain.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain:&nbsp;The&nbsp;current&nbsp;domain.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Slot&nbsp;names&nbsp;which&nbsp;should&nbsp;be&nbsp;filled&nbsp;by&nbsp;the&nbsp;form.&nbsp;By&nbsp;default&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;returns&nbsp;the&nbsp;slot&nbsp;names&nbsp;which&nbsp;are&nbsp;listed&nbsp;for&nbsp;this&nbsp;form&nbsp;in&nbsp;the&nbsp;domain<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;use&nbsp;predefined&nbsp;mappings.</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-form_name"><strong>form_name</strong></a>(self) -&gt; str</dt><dd><tt>Returns&nbsp;the&nbsp;form's&nbsp;name.</tt></dd></dl>
+
+<dl><dt>async <a name="ValidateQuestionnaireForm-next_requested_slot"><strong>next_requested_slot</strong></a>(self, dispatcher: 'CollectingDispatcher', tracker: 'Tracker', domain: 'DomainDict') -&gt; Optional[Dict[str, Any]]</dt><dd><tt>Sets&nbsp;the&nbsp;next&nbsp;slot&nbsp;which&nbsp;should&nbsp;be&nbsp;requested.<br>
+&nbsp;<br>
+Skips&nbsp;setting&nbsp;the&nbsp;next&nbsp;requested&nbsp;slot&nbsp;in&nbsp;case&nbsp;`missing_slots`&nbsp;was&nbsp;not<br>
+overridden.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher:&nbsp;the&nbsp;dispatcher&nbsp;which&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send&nbsp;messages&nbsp;back&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracker:&nbsp;the&nbsp;conversation&nbsp;tracker&nbsp;for&nbsp;the&nbsp;current&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain:&nbsp;the&nbsp;bot's&nbsp;domain.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`None`&nbsp;in&nbsp;case&nbsp;`missing_slots`&nbsp;was&nbsp;not&nbsp;overridden&nbsp;and&nbsp;returns&nbsp;`None`.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Otherwise&nbsp;returns&nbsp;a&nbsp;`SlotSet`&nbsp;event&nbsp;for&nbsp;the&nbsp;next&nbsp;slot&nbsp;to&nbsp;be&nbsp;requested.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;the&nbsp;`SlotSet`&nbsp;event&nbsp;sets&nbsp;`requested_slot`&nbsp;to&nbsp;`None`,&nbsp;the&nbsp;form&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;deactivated.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="rasa_sdk.forms.html#ValidationAction">rasa_sdk.forms.ValidationAction</a>:<br>
+<dl><dt>async <a name="ValidateQuestionnaireForm-get_extraction_events"><strong>get_extraction_events</strong></a>(self, dispatcher: 'CollectingDispatcher', tracker: 'Tracker', domain: 'DomainDict') -&gt; List[Dict[str, Any]]</dt><dd><tt>Extracts&nbsp;custom&nbsp;slots&nbsp;using&nbsp;available&nbsp;`extract_&lt;slot&nbsp;name&gt;`&nbsp;methods.<br>
+&nbsp;<br>
+Uses&nbsp;the&nbsp;information&nbsp;from&nbsp;`self.<strong>required_slots</strong>`&nbsp;to&nbsp;gather&nbsp;which&nbsp;slots&nbsp;should<br>
+be&nbsp;extracted.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher:&nbsp;the&nbsp;dispatcher&nbsp;which&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send&nbsp;messages&nbsp;back&nbsp;to&nbsp;the&nbsp;user.&nbsp;Use<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`dispatcher.utter_message()`&nbsp;for&nbsp;sending&nbsp;messages.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracker:&nbsp;the&nbsp;state&nbsp;tracker&nbsp;for&nbsp;the&nbsp;current<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user.&nbsp;You&nbsp;can&nbsp;access&nbsp;slot&nbsp;values&nbsp;using<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`tracker.get_slot(slot_name)`,&nbsp;the&nbsp;most&nbsp;recent&nbsp;user&nbsp;message<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;`tracker.latest_message.text`&nbsp;and&nbsp;any&nbsp;other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`rasa_sdk.Tracker`&nbsp;property.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain:&nbsp;the&nbsp;bot's&nbsp;domain.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`SlotSet`&nbsp;for&nbsp;any&nbsp;extracted&nbsp;slots.</tt></dd></dl>
+
+<dl><dt>async <a name="ValidateQuestionnaireForm-get_validation_events"><strong>get_validation_events</strong></a>(self, dispatcher: 'CollectingDispatcher', tracker: 'Tracker', domain: 'DomainDict') -&gt; List[Dict[str, Any]]</dt><dd><tt>Validate&nbsp;slots&nbsp;by&nbsp;calling&nbsp;a&nbsp;validation&nbsp;function&nbsp;for&nbsp;each&nbsp;slot.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher:&nbsp;the&nbsp;dispatcher&nbsp;which&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send&nbsp;messages&nbsp;back&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracker:&nbsp;the&nbsp;conversation&nbsp;tracker&nbsp;for&nbsp;the&nbsp;current&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain:&nbsp;the&nbsp;bot's&nbsp;domain.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`SlotSet`&nbsp;events&nbsp;for&nbsp;every&nbsp;validated&nbsp;slot.</tt></dd></dl>
+
+<dl><dt><a name="ValidateQuestionnaireForm-global_slots"><strong>global_slots</strong></a>(self, domain: 'DomainDict') -&gt; List[str]</dt><dd><tt>Returns&nbsp;all&nbsp;slots&nbsp;that&nbsp;contain&nbsp;no&nbsp;form&nbsp;condition.</tt></dd></dl>
+
+<dl><dt>async <a name="ValidateQuestionnaireForm-required_slots"><strong>required_slots</strong></a>(self, domain_slots: List[str], dispatcher: 'CollectingDispatcher', tracker: 'Tracker', domain: 'DomainDict') -&gt; List[str]</dt><dd><tt>Returns&nbsp;slots&nbsp;which&nbsp;the&nbsp;validation&nbsp;action&nbsp;should&nbsp;fill.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain_slots:&nbsp;Names&nbsp;of&nbsp;slots&nbsp;of&nbsp;this&nbsp;form&nbsp;which&nbsp;were&nbsp;mapped&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;domain.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dispatcher:&nbsp;the&nbsp;dispatcher&nbsp;which&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send&nbsp;messages&nbsp;back&nbsp;to&nbsp;the&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tracker:&nbsp;the&nbsp;conversation&nbsp;tracker&nbsp;for&nbsp;the&nbsp;current&nbsp;user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;domain:&nbsp;the&nbsp;bot's&nbsp;domain.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;slot&nbsp;names.</tt></dd></dl>
+
+<dl><dt>async <a name="ValidateQuestionnaireForm-run"><strong>run</strong></a>(self, dispatcher: 'CollectingDispatcher', tracker: 'Tracker', domain: 'DomainDict') -&gt; List[Dict[str, Any]]</dt><dd><tt>Runs&nbsp;the&nbsp;custom&nbsp;actions.&nbsp;Please&nbsp;the&nbsp;docstring&nbsp;of&nbsp;the&nbsp;parent&nbsp;class.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>:<br>
+<dl><dt><a name="ValidateQuestionnaireForm-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="rasa_sdk.interfaces.html#Action">rasa_sdk.interfaces.Action</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ALLOWED_ANSWERS</strong> = ['0', '1', '2', '3']<br>
+<strong>Any</strong> = typing.Any<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>EVALUATION_FILE_PATH</strong> = 'additional_data/evaluation_data.yaml'<br>
+<strong>List</strong> = typing.List</td></tr></table>
+</body></html>
